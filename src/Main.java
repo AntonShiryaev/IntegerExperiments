@@ -19,19 +19,49 @@ public class Main
         char hre = ' ';
         character = hre;
         //System.out.println(character+" "+character.getClass()+" "+character.hashCode());
-        System.out.println(sumDigitsChar(character));
+        //System.out.println(sumDigitsChar(character));
+        System.out.println("Исходный символ: "+character+". Код символа: "+character.hashCode()+". sumDigitsChar: "+sumDigitsChar(character));
 
+        //Scanner console = new Scanner(System.in);
+        //System.out.println(console.next().charAt(0));
 
+        Scanner console = new Scanner(System.in);
+        System.out.println("Введите целые цифры для расчета суммы цифр:");
+        String str = console.next();
+        //System.out.println(str.getClass());
+        //System.out.println("Str length:"+str.length());
+        if (str.length()==1){
+            //System.out.println("Str: "+str);
+            Character c = str.charAt(0);
+            //System.out.println(c.charValue()+" "+c.getClass());
+            System.out.println("sumDigitsChar: "+sumDigitsChar(c));
+        }else{
+            //System.out.println("Result sumDigits: "+sumDigits(console.nextInt()));
+            System.out.println("Result sumDigits: "+sumDigits(Integer.parseInt(str)));
+        }
+        /*
         while(true){
             try{
                 Scanner console = new Scanner(System.in);
                 System.out.println("Введите целые цифры для расчета суммы цифр:");
-                System.out.println("Result sumDigits: "+sumDigits(console.nextInt()));
+                //System.out.println("Result sumDigits: "+sumDigits(console.nextInt()));
+
+                //ввод символа
+                if (console.nextLine().length()==1){
+                    Character c = console.next().charAt(0);
+                    System.out.println(c.charValue()+" "+c.getClass());
+                    System.out.println("sumDigitsChar: "+sumDigitsChar(c));
+                }else{
+                    System.out.println("Result sumDigits: "+sumDigits(console.nextInt()));
+                }
+
             }
             catch (Exception e){
                 System.out.println("Введены не целые цифры! Повторите ввод: ");
             }
         }
+        */
+
 
     }
     public static Integer sumDigits(Integer number)
@@ -43,18 +73,13 @@ public class Main
             i++;
         }
         return sum;
-        //System.out.println("Sum: "+sum);
     }
     public static Integer sumDigitsChar(Character decNumber){
-
         int sum=0;
         for (int i=0; i<String.valueOf(decNumber.hashCode()).length();){
             sum += Integer.valueOf(((String.valueOf(decNumber.hashCode())).charAt(i)-'0'));
             i++;
         }
-        System.out.println("Исходный символ: "+decNumber+". Код символа: "+decNumber.hashCode()+". sumDigitsChar: "+sum);
-
-
         /*
         System.out.println(decNumber); //вывод значения переданного объекта
         System.out.println(decNumber.getClass().getName()); //вывод названия имени класса объекта
