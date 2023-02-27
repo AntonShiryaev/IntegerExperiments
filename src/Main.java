@@ -1,6 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main
@@ -15,54 +12,25 @@ public class Main
 
         //4.6 допзадание
         Character character = '$';
-        //System.out.println(character.hashCode()); //возвращает int Dec значение таблицы ASCII
-        char hre = ' ';
+        char hre = ' '; //по заданию сказано использовать именно метод int из char
         character = hre;
-        //System.out.println(character+" "+character.getClass()+" "+character.hashCode());
-        //System.out.println(sumDigitsChar(character));
         System.out.println("Исходный символ: "+character+". Код символа: "+character.hashCode()+". sumDigitsChar: "+sumDigitsChar(character));
-
-        //Scanner console = new Scanner(System.in);
-        //System.out.println(console.next().charAt(0));
-
-        Scanner console = new Scanner(System.in);
-        System.out.println("Введите целые цифры для расчета суммы цифр:");
-        String str = console.next();
-        //System.out.println(str.getClass());
-        //System.out.println("Str length:"+str.length());
-        if (str.length()==1){
-            //System.out.println("Str: "+str);
-            Character c = str.charAt(0);
-            //System.out.println(c.charValue()+" "+c.getClass());
-            System.out.println("sumDigitsChar: "+sumDigitsChar(c));
-        }else{
-            //System.out.println("Result sumDigits: "+sumDigits(console.nextInt()));
-            System.out.println("Result sumDigits: "+sumDigits(Integer.parseInt(str)));
-        }
-        /*
+        System.out.println("Введите целые цифры или один символ ASCII для расчета суммы цифр:");
         while(true){
             try{
                 Scanner console = new Scanner(System.in);
-                System.out.println("Введите целые цифры для расчета суммы цифр:");
-                //System.out.println("Result sumDigits: "+sumDigits(console.nextInt()));
-
-                //ввод символа
-                if (console.nextLine().length()==1){
-                    Character c = console.next().charAt(0);
-                    System.out.println(c.charValue()+" "+c.getClass());
-                    System.out.println("sumDigitsChar: "+sumDigitsChar(c));
+                String str = console.next();
+                if (str.length()==1){
+                    Character c = str.charAt(0);
+                    System.out.println("Исходный символ: "+c+". Код символа: "+c.hashCode()+". sumDigitsChar: "+sumDigitsChar(c));
                 }else{
-                    System.out.println("Result sumDigits: "+sumDigits(console.nextInt()));
+                    System.out.println("Исходное число для расчета: "+Integer.parseInt(str)+". Результат sumDigits: "+sumDigits(Integer.parseInt(str)));
                 }
-
             }
             catch (Exception e){
-                System.out.println("Введены не целые цифры! Повторите ввод: ");
+                System.out.println("Введены не целые цифры или один символ ASCII! Повторите ввод: ");
             }
         }
-        */
-
-
     }
     public static Integer sumDigits(Integer number)
     {
